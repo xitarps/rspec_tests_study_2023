@@ -1,7 +1,7 @@
 require 'calculator'
 
 describe Calculator do
-  subject(:calc) { Calculator.new } 
+  subject(:calc) { described_class.new } 
   describe "#sum" do
     context 'with positive numbers' do
       it 'should return positive' do
