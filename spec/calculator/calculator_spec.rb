@@ -1,15 +1,33 @@
 require 'calculator'
 
 describe Calculator do
-  it 'should return the sum of two numbers' do
-    result = Calculator.new.sum(5 ,6)
+  describe "#sum" do
+    context 'with positive numbers' do
+      it 'should return positive' do
+        result = Calculator.new.sum(5 ,6)
 
-    expect(result).to be_eql(11)
-  end
+        expect(result).to be_eql(11)
+      end
+    end
+    context 'with negative numbers' do
+      it 'should return negative' do
+        result = Calculator.new.sum(-5 ,-7)
 
-  it 'should return the sum of two numbers even when there are negative numbers' do
-    result = Calculator.new.sum(-5 ,6)
+        expect(result).to be_eql(-12)
+      end
+    end
+    context 'with positive and negative numbers' do
+      it 'should return positive' do
+        result = Calculator.new.sum(-5 ,8)
 
-    expect(result).to be_eql(1)
+        expect(result).to be_eql(3)
+      end
+
+      it 'should return negative' do
+        result = Calculator.new.sum(-5 ,3)
+
+        expect(result).to be_eql(-2)
+      end
+    end
   end
 end
