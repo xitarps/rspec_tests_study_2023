@@ -18,6 +18,37 @@ require_relative 'support/math_magic_helper'
 RSpec.configure do |config|
 
   config.include MathMagicHelper
+
+  config.before(:suite) do
+    puts "Rodando testes >>> \n\n"
+  end
+
+  config.after(:suite) do
+    puts "\n\n<<< Testes finalizados"
+  end
+
+  # config.before(:all) do # :all / :context
+  #   puts "Rodando antes de cada contexto >>> \n\n"
+  # end
+
+  # config.after(:all) do # :all / :context
+  #   puts "\n\n<<< Rodando após de cada contexto finalizados"
+  # end
+
+    # config.before(:each) do # :example
+  #   puts "Rodando antes de cada teste >>> \n\n"
+  # end
+
+  # config.after(:each) do # :example
+  #   puts "\n\n<<< Rodando após de cada teste finalizados"
+  # end
+
+  # config.around(:each) do |example|
+  #   puts "\n\n<<< Antes dos exemplos"
+  #   example.run
+  #   puts "\n\n<<< Após os exemplos"
+  # end
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
