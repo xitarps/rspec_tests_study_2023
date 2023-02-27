@@ -15,16 +15,18 @@ describe 'Comaprison Matchers' do
     expect(5).to be <= 6
   end
 
-  it 'be_between - inclusive' do
+  it 'be_between - inclusive', :aggregate_failures do
     expect(4).to be_between(3,5).inclusive
     expect(5).to be_between(3,5).inclusive
     expect(3).to be_between(3,5).inclusive
   end
 
   it 'be_between - exclusive' do
-    expect(4).to be_between(3,5).exclusive
-    expect(5).not_to be_between(3,5).exclusive
-    expect(3).not_to be_between(3,5).exclusive
+    aggregate_failures do
+      expect(4).to be_between(3,5).exclusive
+      expect(5).not_to be_between(3,5).exclusive
+      expect(3).not_to be_between(3,5).exclusive
+    end
   end
 
   it 'match - /REGEX/' do

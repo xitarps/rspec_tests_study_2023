@@ -19,6 +19,10 @@ RSpec.configure do |config|
 
   config.include MathMagicHelper
 
+  config.define_derived_metadata do |meta|
+    meta[:aggregate_failures] = true
+  end
+
   config.before(:suite) do
     puts "Rodando testes >>> \n\n"
   end
